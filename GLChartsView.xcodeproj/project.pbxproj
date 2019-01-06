@@ -13,6 +13,18 @@
 		7AE9B0C621DEFCE200330976 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AE9B0C521DEFCE200330976 /* Assets.xcassets */; };
 		7AE9B0C921DEFCE200330976 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AE9B0C721DEFCE200330976 /* LaunchScreen.storyboard */; };
 		7AE9B0CC21DEFCE200330976 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B0CB21DEFCE200330976 /* main.m */; };
+		7AE9B0DF21DEFDEC00330976 /* GLChartsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B0D321DEFDEC00330976 /* GLChartsView.m */; };
+		7AE9B0E221DEFDEC00330976 /* GLChartsHighlightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B0D721DEFDEC00330976 /* GLChartsHighlightView.m */; };
+		7AE9B0E321DEFDEC00330976 /* GLChartsHighlightFocusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B0D821DEFDEC00330976 /* GLChartsHighlightFocusView.m */; };
+		7AE9B0E421DEFDEC00330976 /* GLChartsUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B0DC21DEFDEC00330976 /* GLChartsUtils.m */; };
+		7AE9B0EA21DF534200330976 /* ChartsDefaultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B0E921DF534200330976 /* ChartsDefaultViewController.m */; };
+		7AE9B0ED21DF55AF00330976 /* ChartsCustomFocusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B0EC21DF55AF00330976 /* ChartsCustomFocusViewController.m */; };
+		7AE9B0F021DF55FB00330976 /* ChartsCustomHighlightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B0EF21DF55FB00330976 /* ChartsCustomHighlightViewController.m */; };
+		7AE9B0F321DF572100330976 /* ChartsCustomAxisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B0F221DF572100330976 /* ChartsCustomAxisViewController.m */; };
+		7AE9B0F621DF57F900330976 /* ChartsCustomGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B0F521DF57F900330976 /* ChartsCustomGridViewController.m */; };
+		7AE9B0F921DF5BB100330976 /* ChartsCustomFocusAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B0F821DF5BB100330976 /* ChartsCustomFocusAnimationViewController.m */; };
+		7AE9B0FC21E0B47400330976 /* ChartsBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B0FB21E0B47400330976 /* ChartsBaseViewController.m */; };
+		7AE9B10421E1EE9B00330976 /* defaultDatas.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 7AE9B10321E1EE9B00330976 /* defaultDatas.geojson */; };
 		FED08EA56B56C89C280B5A4D /* libPods-GLChartsView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A242053F524F3F0E6EF3401 /* libPods-GLChartsView.a */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +40,30 @@
 		7AE9B0C821DEFCE200330976 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7AE9B0CA21DEFCE200330976 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AE9B0CB21DEFCE200330976 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7AE9B0D321DEFDEC00330976 /* GLChartsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLChartsView.m; sourceTree = "<group>"; };
+		7AE9B0D521DEFDEC00330976 /* GLChartsUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLChartsUtils.h; sourceTree = "<group>"; };
+		7AE9B0D721DEFDEC00330976 /* GLChartsHighlightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLChartsHighlightView.m; sourceTree = "<group>"; };
+		7AE9B0D821DEFDEC00330976 /* GLChartsHighlightFocusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLChartsHighlightFocusView.m; sourceTree = "<group>"; };
+		7AE9B0D921DEFDEC00330976 /* GLChartsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLChartsView.h; sourceTree = "<group>"; };
+		7AE9B0DA21DEFDEC00330976 /* GLChartsHighlightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLChartsHighlightView.h; sourceTree = "<group>"; };
+		7AE9B0DC21DEFDEC00330976 /* GLChartsUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLChartsUtils.m; sourceTree = "<group>"; };
+		7AE9B0DE21DEFDEC00330976 /* GLChartsHighlightFocusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLChartsHighlightFocusView.h; sourceTree = "<group>"; };
+		7AE9B0E521DF0A5E00330976 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		7AE9B0E821DF534200330976 /* ChartsDefaultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartsDefaultViewController.h; sourceTree = "<group>"; };
+		7AE9B0E921DF534200330976 /* ChartsDefaultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartsDefaultViewController.m; sourceTree = "<group>"; };
+		7AE9B0EB21DF55AF00330976 /* ChartsCustomFocusViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartsCustomFocusViewController.h; sourceTree = "<group>"; };
+		7AE9B0EC21DF55AF00330976 /* ChartsCustomFocusViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartsCustomFocusViewController.m; sourceTree = "<group>"; };
+		7AE9B0EE21DF55FB00330976 /* ChartsCustomHighlightViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartsCustomHighlightViewController.h; sourceTree = "<group>"; };
+		7AE9B0EF21DF55FB00330976 /* ChartsCustomHighlightViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartsCustomHighlightViewController.m; sourceTree = "<group>"; };
+		7AE9B0F121DF572100330976 /* ChartsCustomAxisViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartsCustomAxisViewController.h; sourceTree = "<group>"; };
+		7AE9B0F221DF572100330976 /* ChartsCustomAxisViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartsCustomAxisViewController.m; sourceTree = "<group>"; };
+		7AE9B0F421DF57F900330976 /* ChartsCustomGridViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartsCustomGridViewController.h; sourceTree = "<group>"; };
+		7AE9B0F521DF57F900330976 /* ChartsCustomGridViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartsCustomGridViewController.m; sourceTree = "<group>"; };
+		7AE9B0F721DF5BB100330976 /* ChartsCustomFocusAnimationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartsCustomFocusAnimationViewController.h; sourceTree = "<group>"; };
+		7AE9B0F821DF5BB100330976 /* ChartsCustomFocusAnimationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartsCustomFocusAnimationViewController.m; sourceTree = "<group>"; };
+		7AE9B0FA21E0B47400330976 /* ChartsBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartsBaseViewController.h; sourceTree = "<group>"; };
+		7AE9B0FB21E0B47400330976 /* ChartsBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartsBaseViewController.m; sourceTree = "<group>"; };
+		7AE9B10321E1EE9B00330976 /* defaultDatas.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = defaultDatas.geojson; sourceTree = "<group>"; };
 		AD55D14CA146487D84C89CE0 /* Pods-GLChartsView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GLChartsView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GLChartsView/Pods-GLChartsView.debug.xcconfig"; sourceTree = "<group>"; };
 		F127DC92189CE1B01136C86E /* Pods-GLChartsView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GLChartsView.release.xcconfig"; path = "Pods/Target Support Files/Pods-GLChartsView/Pods-GLChartsView.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,17 +118,97 @@
 		7AE9B0BB21DEFCE000330976 /* GLChartsView */ = {
 			isa = PBXGroup;
 			children = (
+				7AE9B0D221DEFDEC00330976 /* GLChartsView */,
 				7AE9B0BC21DEFCE000330976 /* AppDelegate.h */,
 				7AE9B0BD21DEFCE000330976 /* AppDelegate.m */,
 				7AE9B0BF21DEFCE000330976 /* ViewController.h */,
 				7AE9B0C021DEFCE000330976 /* ViewController.m */,
+				7AE9B10321E1EE9B00330976 /* defaultDatas.geojson */,
+				7AE9B0FA21E0B47400330976 /* ChartsBaseViewController.h */,
+				7AE9B0FB21E0B47400330976 /* ChartsBaseViewController.m */,
+				7AE9B0FD21E0B7E400330976 /* ChartsDefaultViewController */,
+				7AE9B0FE21E0B7F700330976 /* ChartsCustomFocusViewController */,
+				7AE9B0FF21E0B80500330976 /* ChartsCustomFocusAnimationViewController */,
+				7AE9B10021E0B81B00330976 /* ChartsCustomHighlightViewController */,
+				7AE9B10121E0B83800330976 /* ChartsCustomAxisViewController */,
+				7AE9B10221E0B84200330976 /* ChartsCustomGridViewController */,
 				7AE9B0C221DEFCE000330976 /* Main.storyboard */,
 				7AE9B0C521DEFCE200330976 /* Assets.xcassets */,
 				7AE9B0C721DEFCE200330976 /* LaunchScreen.storyboard */,
 				7AE9B0CA21DEFCE200330976 /* Info.plist */,
+				7AE9B0E521DF0A5E00330976 /* PrefixHeader.pch */,
 				7AE9B0CB21DEFCE200330976 /* main.m */,
 			);
 			path = GLChartsView;
+			sourceTree = "<group>";
+		};
+		7AE9B0D221DEFDEC00330976 /* GLChartsView */ = {
+			isa = PBXGroup;
+			children = (
+				7AE9B0D521DEFDEC00330976 /* GLChartsUtils.h */,
+				7AE9B0DC21DEFDEC00330976 /* GLChartsUtils.m */,
+				7AE9B0DA21DEFDEC00330976 /* GLChartsHighlightView.h */,
+				7AE9B0D721DEFDEC00330976 /* GLChartsHighlightView.m */,
+				7AE9B0DE21DEFDEC00330976 /* GLChartsHighlightFocusView.h */,
+				7AE9B0D821DEFDEC00330976 /* GLChartsHighlightFocusView.m */,
+				7AE9B0D921DEFDEC00330976 /* GLChartsView.h */,
+				7AE9B0D321DEFDEC00330976 /* GLChartsView.m */,
+			);
+			path = GLChartsView;
+			sourceTree = "<group>";
+		};
+		7AE9B0FD21E0B7E400330976 /* ChartsDefaultViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7AE9B0E821DF534200330976 /* ChartsDefaultViewController.h */,
+				7AE9B0E921DF534200330976 /* ChartsDefaultViewController.m */,
+			);
+			path = ChartsDefaultViewController;
+			sourceTree = "<group>";
+		};
+		7AE9B0FE21E0B7F700330976 /* ChartsCustomFocusViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7AE9B0EB21DF55AF00330976 /* ChartsCustomFocusViewController.h */,
+				7AE9B0EC21DF55AF00330976 /* ChartsCustomFocusViewController.m */,
+			);
+			path = ChartsCustomFocusViewController;
+			sourceTree = "<group>";
+		};
+		7AE9B0FF21E0B80500330976 /* ChartsCustomFocusAnimationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7AE9B0F721DF5BB100330976 /* ChartsCustomFocusAnimationViewController.h */,
+				7AE9B0F821DF5BB100330976 /* ChartsCustomFocusAnimationViewController.m */,
+			);
+			path = ChartsCustomFocusAnimationViewController;
+			sourceTree = "<group>";
+		};
+		7AE9B10021E0B81B00330976 /* ChartsCustomHighlightViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7AE9B0EE21DF55FB00330976 /* ChartsCustomHighlightViewController.h */,
+				7AE9B0EF21DF55FB00330976 /* ChartsCustomHighlightViewController.m */,
+			);
+			path = ChartsCustomHighlightViewController;
+			sourceTree = "<group>";
+		};
+		7AE9B10121E0B83800330976 /* ChartsCustomAxisViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7AE9B0F121DF572100330976 /* ChartsCustomAxisViewController.h */,
+				7AE9B0F221DF572100330976 /* ChartsCustomAxisViewController.m */,
+			);
+			path = ChartsCustomAxisViewController;
+			sourceTree = "<group>";
+		};
+		7AE9B10221E0B84200330976 /* ChartsCustomGridViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7AE9B0F421DF57F900330976 /* ChartsCustomGridViewController.h */,
+				7AE9B0F521DF57F900330976 /* ChartsCustomGridViewController.m */,
+			);
+			path = ChartsCustomGridViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AE9B0C921DEFCE200330976 /* LaunchScreen.storyboard in Resources */,
+				7AE9B10421E1EE9B00330976 /* defaultDatas.geojson in Resources */,
 				7AE9B0C621DEFCE200330976 /* Assets.xcassets in Resources */,
 				7AE9B0C421DEFCE000330976 /* Main.storyboard in Resources */,
 			);
@@ -191,9 +308,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AE9B0F921DF5BB100330976 /* ChartsCustomFocusAnimationViewController.m in Sources */,
+				7AE9B0E421DEFDEC00330976 /* GLChartsUtils.m in Sources */,
+				7AE9B0EA21DF534200330976 /* ChartsDefaultViewController.m in Sources */,
 				7AE9B0C121DEFCE000330976 /* ViewController.m in Sources */,
+				7AE9B0F321DF572100330976 /* ChartsCustomAxisViewController.m in Sources */,
+				7AE9B0F621DF57F900330976 /* ChartsCustomGridViewController.m in Sources */,
+				7AE9B0ED21DF55AF00330976 /* ChartsCustomFocusViewController.m in Sources */,
+				7AE9B0DF21DEFDEC00330976 /* GLChartsView.m in Sources */,
+				7AE9B0FC21E0B47400330976 /* ChartsBaseViewController.m in Sources */,
+				7AE9B0E221DEFDEC00330976 /* GLChartsHighlightView.m in Sources */,
 				7AE9B0CC21DEFCE200330976 /* main.m in Sources */,
 				7AE9B0BE21DEFCE000330976 /* AppDelegate.m in Sources */,
+				7AE9B0F021DF55FB00330976 /* ChartsCustomHighlightViewController.m in Sources */,
+				7AE9B0E321DEFDEC00330976 /* GLChartsHighlightFocusView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,7 +398,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -323,7 +451,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -338,7 +466,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W5R7533S79;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/GLChartsView/PrefixHeader.pch";
 				INFOPLIST_FILE = GLChartsView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -356,7 +486,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W5R7533S79;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/GLChartsView/PrefixHeader.pch";
 				INFOPLIST_FILE = GLChartsView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

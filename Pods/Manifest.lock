@@ -1,18 +1,26 @@
 PODS:
+  - GLConfig (1.0.6)
+  - GLSegmentedControl (1.2.5)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
+  - GLConfig
+  - GLSegmentedControl
   - YYKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - GLConfig
+    - GLSegmentedControl
     - YYKit
 
 SPEC CHECKSUMS:
+  GLConfig: 125c4c50144265851eeaac81c534e3363454aac7
+  GLSegmentedControl: cc048301e34418b4feec645200e7ef0b756fc695
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 06e316c5f4e1d9889f8c3bc7dfa177317eccd2ad
+PODFILE CHECKSUM: 4bab64cf8a8c3328777fcfe168a6b3cf2f3f8a49
 
 COCOAPODS: 1.5.3
