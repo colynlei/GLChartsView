@@ -32,8 +32,6 @@
 }
 
 - (void)chartsData:(NSArray *)data {
-    NSLog(@"%@",data);
-    
     NSInteger max = 0;
     NSInteger mix = 0;
     NSMutableArray *points = [NSMutableArray arrayWithCapacity:0];
@@ -56,8 +54,6 @@
     while (b < 7) {
         b++;
         y += p;
-
-        NSLog(@"y = %f ,p = %ld",y,(NSInteger)y);
         [arr addObject:[NSString stringWithFormat:@"%ld",(NSInteger)y]];
     }
     
@@ -66,7 +62,6 @@
     self.chartsView.yAxisData = arr;
     self.chartsView.xAxisData = xData;
     self.chartsView.points = points;
-    
 }
 
 - (void)viewDidLayoutSubviews {

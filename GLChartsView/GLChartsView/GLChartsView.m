@@ -53,11 +53,15 @@
 
 @property (nonatomic, strong) CALayer *highlightFocusLayer;//高亮中心点的视图
 
+@property (nonatomic, assign) NSInteger currentPointIndex;
+
+
+
 @end
 
 @implementation GLChartsView
 
-@synthesize yAxisModel = _yAxisModel, xAxisModel = _xAxisModel, yAxisTextModel = _yAxisTextModel, xAxisTextModel = _xAxisTextModel, chartsLineModel = _chartsLineModel, highlightVerticalLineModel = _highlightVerticalLineModel, highlightHorizontalLineModel = _highlightHorizontalLineModel;
+@synthesize yAxisModel = _yAxisModel, xAxisModel = _xAxisModel, yAxisTextModel = _yAxisTextModel, xAxisTextModel = _xAxisTextModel, chartsLineModel = _chartsLineModel, highlightVerticalLineModel = _highlightVerticalLineModel, highlightHorizontalLineModel = _highlightHorizontalLineModel,highlightView = _highlightView;
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -72,7 +76,7 @@
         
         [self.highlightBgView.layer addSublayer:self.highlightVerticalLineLayer];
         [self.highlightBgView.layer addSublayer:self.highlightHorizontalLineLayer];
-        [self.highlightBgView.layer addSublayer:self.highlightFocusLayer];
+//        [self.highlightBgView.layer addSublayer:self.highlightFocusLayer];
         
         [self addGestureRecognizer:self.tap];
         [self addGestureRecognizer:self.pan];
@@ -91,7 +95,7 @@
 
 - (void)initDefaultData {
     self.backgroundColor = [UIColor whiteColor];
-    
+    self.currentPointIndex = NSIntegerMax;
     _mainChartsViewInset = UIEdgeInsetsMake(0, 40, 30, 20);
     _highlightViewToVerticalLine = 5;
     _highlightViewToHorizontalLine = 5;
@@ -339,19 +343,19 @@
     return _highlightHorizontalLineLayer;
 }
 
-- (CALayer *)highlightFocusLayer {
-    if (!_highlightFocusLayer) {
-        _highlightFocusLayer = [CALayer layer];
-        _highlightFocusLayer.frame = CGRectMake(0, 0, 10, 10);
-        
-        CALayer *layer = [CALayer layer];
-        layer.frame = _highlightFocusLayer.bounds;
-        layer.backgroundColor = [UIColor redColor].CGColor;;
-        layer.cornerRadius = layer.height/2;
-        [_highlightFocusLayer addSublayer:layer];
-    }
-    return _highlightFocusLayer;
-}
+//- (CALayer *)highlightFocusLayer {
+//    if (!_highlightFocusLayer) {
+//        _highlightFocusLayer = [CALayer layer];
+//        _highlightFocusLayer.frame = CGRectMake(0, 0, 10, 10);
+//
+//        CALayer *layer = [CALayer layer];
+//        layer.frame = _highlightFocusLayer.bounds;
+//        layer.backgroundColor = [UIColor redColor].CGColor;;
+//        layer.cornerRadius = layer.height/2;
+//        [_highlightFocusLayer addSublayer:layer];
+//    }
+//    return _highlightFocusLayer;
+//}
 
 - (CALayer *)yAxisLayer {
     if (!_yAxisLayer) {
@@ -529,11 +533,11 @@
         } else if (p.y < self.highlightBgView.frame.origin.y) {
             p = CGPointMake(p.x, self.highlightBgView.frame.origin.y);
         }
-        if (p.x > CGRectGetMaxX(self.highlightBgView.frame)) {
-            p = CGPointMake(CGRectGetMaxY(self.highlightBgView.frame), p.y);
-        } else if (p.x < self.highlightBgView.frame.origin.x) {
-            p = CGPointMake(self.highlightBgView.frame.origin.x, p.y);
-        }
+//        if (p.x > CGRectGetMaxX(self.highlightBgView.frame)) {
+//            p = CGPointMake(CGRectGetMaxY(self.highlightBgView.frame), p.y);
+//        } else if (p.x < self.highlightBgView.frame.origin.x) {
+//            p = CGPointMake(self.highlightBgView.frame.origin.x, p.y);
+//        }
         [self gestureWithPoint:p state:pan.state];
     } else if (pan.state == UIGestureRecognizerStateBegan) {
         if (CGRectContainsPoint(self.mainChartsLayer.frame, p)) {
@@ -556,12 +560,20 @@
         index+=1;
     }
     if (index >= self.chartsPoints.count) return;
+
+    if (index != self.currentPointIndex) {
+        self.currentPointIndex = index;
+    } else {
+        return;
+    }
+    
     HBPDChartsPointsModel *model = self.chartsPoints[index];
 
     CGPoint focusPoint = CGPointMake(x, model.point.y);
     switch (state) {
         case UIGestureRecognizerStateBegan:
         {
+            self.currentPointIndex = index;
             if (self.highlightBgView.alpha == 1) {
                 [self resetFrameWithChangePoint:focusPoint];
             } else {
@@ -576,11 +588,11 @@
             break;
         case UIGestureRecognizerStateEnded:
         {
+            self.currentPointIndex = NSIntegerMax;
             [self resetFrameWithChangePoint:focusPoint];
             [self performSelector:@selector(removeHighlightBgView) withObject:nil afterDelay:self.highlightTimeDelay];
         }
             break;
-            
         default:
             break;
     }
@@ -610,9 +622,13 @@
     }
     [CATransaction commit];
     
+    if (!self.highlightFocusLayer.superlayer) {
+        [self.highlightFocusLayer addSublayer:self.highlightFocusView.layer];
+    }
+    
     if (!self.highlightView.superview) {
         [self.highlightBgView addSubview:self.highlightView];
-        [self.highlightBgView.layer insertSublayer:self.highlightView.layer below:self.highlightFocusLayer];
+//        [self.highlightBgView.layer insertSublayer:self.highlightView.layer below:self.highlightFocusLayer];
     }
     self.highlightView.frame = [self highlightViewFrameFromPoint:p];
 }
@@ -656,12 +672,18 @@
     
     self.highlightFocusLayer.frame = highlightFocusView.bounds;
     self.highlightFocusLayer.transform = CATransform3DMakeRotation(M_PI, 1, 0, 0);
-    [self.highlightFocusLayer addSublayer:highlightFocusView.layer];
+//    [self.highlightFocusLayer addSublayer:highlightFocusView.layer];
     highlightFocusView.layer.frame = highlightFocusView.bounds;
 }
 
 - (CGRect)highlightViewFrameFromPoint:(CGPoint)focusPoint {
-    CGFloat x=0,y=0,w=self.highlightView.width,h=self.highlightView.height;
+    CGRect rect = CGRectZero;
+    if (self.highlightView.currentPointBlock) {
+        rect = self.highlightView.currentPointBlock(self.currentPointIndex);
+    } else {
+        return self.highlightView.bounds;
+    }
+    CGFloat x=0,y=0,w=rect.size.width,h=rect.size.height;
     if (focusPoint.x-self.highlightViewToVerticalLine-self.highlightVerticalLineModel.lineWidth/2 > w) {
         x = focusPoint.x-self.highlightViewToVerticalLine-self.highlightVerticalLineModel.lineWidth/2 - w;
     } else {
@@ -688,7 +710,7 @@
 
 - (void)startAnimation {
     CABasicAnimation *an = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
-    an.duration = self.animationDuration;
+    an.duration = self.animationDuration*(self.xAxisData.count>self.yAxisData.count?(self.xAxisData.count/self.yAxisData.count):1);
     an.repeatCount = 1;
     an.removedOnCompletion = YES;
     an.fromValue = @(0);

@@ -25,6 +25,7 @@
 		7AE9B0F921DF5BB100330976 /* ChartsCustomFocusAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B0F821DF5BB100330976 /* ChartsCustomFocusAnimationViewController.m */; };
 		7AE9B0FC21E0B47400330976 /* ChartsBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B0FB21E0B47400330976 /* ChartsBaseViewController.m */; };
 		7AE9B10421E1EE9B00330976 /* defaultDatas.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 7AE9B10321E1EE9B00330976 /* defaultDatas.geojson */; };
+		7AE9B10721E3361600330976 /* CustomHighlightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B10621E3361600330976 /* CustomHighlightView.m */; };
 		FED08EA56B56C89C280B5A4D /* libPods-GLChartsView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A242053F524F3F0E6EF3401 /* libPods-GLChartsView.a */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,8 @@
 		7AE9B0FA21E0B47400330976 /* ChartsBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartsBaseViewController.h; sourceTree = "<group>"; };
 		7AE9B0FB21E0B47400330976 /* ChartsBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartsBaseViewController.m; sourceTree = "<group>"; };
 		7AE9B10321E1EE9B00330976 /* defaultDatas.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = defaultDatas.geojson; sourceTree = "<group>"; };
+		7AE9B10521E3361600330976 /* CustomHighlightView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomHighlightView.h; sourceTree = "<group>"; };
+		7AE9B10621E3361600330976 /* CustomHighlightView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomHighlightView.m; sourceTree = "<group>"; };
 		AD55D14CA146487D84C89CE0 /* Pods-GLChartsView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GLChartsView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GLChartsView/Pods-GLChartsView.debug.xcconfig"; sourceTree = "<group>"; };
 		F127DC92189CE1B01136C86E /* Pods-GLChartsView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GLChartsView.release.xcconfig"; path = "Pods/Target Support Files/Pods-GLChartsView/Pods-GLChartsView.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,6 +192,8 @@
 			children = (
 				7AE9B0EE21DF55FB00330976 /* ChartsCustomHighlightViewController.h */,
 				7AE9B0EF21DF55FB00330976 /* ChartsCustomHighlightViewController.m */,
+				7AE9B10521E3361600330976 /* CustomHighlightView.h */,
+				7AE9B10621E3361600330976 /* CustomHighlightView.m */,
 			);
 			path = ChartsCustomHighlightViewController;
 			sourceTree = "<group>";
@@ -309,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AE9B0F921DF5BB100330976 /* ChartsCustomFocusAnimationViewController.m in Sources */,
+				7AE9B10721E3361600330976 /* CustomHighlightView.m in Sources */,
 				7AE9B0E421DEFDEC00330976 /* GLChartsUtils.m in Sources */,
 				7AE9B0EA21DF534200330976 /* ChartsDefaultViewController.m in Sources */,
 				7AE9B0C121DEFCE000330976 /* ViewController.m in Sources */,

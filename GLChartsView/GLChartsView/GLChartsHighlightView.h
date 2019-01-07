@@ -12,7 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GLChartsHighlightView : UIView
 
-- (void)currentPointIndex:(NSInteger)index;
+//返回值rect为计算后的self.frame
+@property (nonatomic, copy) CGRect(^currentPointBlock)(NSInteger index);
 
 @end
 

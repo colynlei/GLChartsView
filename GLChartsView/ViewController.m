@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 
+typedef void (^aablock)(void);
+
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -35,6 +37,7 @@
                           @"viewController":@"ChartsCustomAxisViewController"},
                         @{@"title":@"自定义网格线",
                           @"viewController":@"ChartsCustomGridViewController"}];
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
