@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A70D3DC21E44C1000F42FFD /* CustomHighlightFocusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A70D3DB21E44C1000F42FFD /* CustomHighlightFocusView.m */; };
 		7AE9B0BE21DEFCE000330976 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B0BD21DEFCE000330976 /* AppDelegate.m */; };
 		7AE9B0C121DEFCE000330976 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B0C021DEFCE000330976 /* ViewController.m */; };
 		7AE9B0C421DEFCE000330976 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AE9B0C221DEFCE000330976 /* Main.storyboard */; };
@@ -31,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		2A242053F524F3F0E6EF3401 /* libPods-GLChartsView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GLChartsView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A70D3DA21E44C1000F42FFD /* CustomHighlightFocusView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomHighlightFocusView.h; sourceTree = "<group>"; };
+		7A70D3DB21E44C1000F42FFD /* CustomHighlightFocusView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomHighlightFocusView.m; sourceTree = "<group>"; };
 		7AE9B0B921DEFCE000330976 /* GLChartsView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GLChartsView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AE9B0BC21DEFCE000330976 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7AE9B0BD21DEFCE000330976 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -174,6 +177,8 @@
 			children = (
 				7AE9B0EB21DF55AF00330976 /* ChartsCustomFocusViewController.h */,
 				7AE9B0EC21DF55AF00330976 /* ChartsCustomFocusViewController.m */,
+				7A70D3DA21E44C1000F42FFD /* CustomHighlightFocusView.h */,
+				7A70D3DB21E44C1000F42FFD /* CustomHighlightFocusView.m */,
 			);
 			path = ChartsCustomFocusViewController;
 			sourceTree = "<group>";
@@ -316,6 +321,7 @@
 				7AE9B0F921DF5BB100330976 /* ChartsCustomFocusAnimationViewController.m in Sources */,
 				7AE9B10721E3361600330976 /* CustomHighlightView.m in Sources */,
 				7AE9B0E421DEFDEC00330976 /* GLChartsUtils.m in Sources */,
+				7A70D3DC21E44C1000F42FFD /* CustomHighlightFocusView.m in Sources */,
 				7AE9B0EA21DF534200330976 /* ChartsDefaultViewController.m in Sources */,
 				7AE9B0C121DEFCE000330976 /* ViewController.m in Sources */,
 				7AE9B0F321DF572100330976 /* ChartsCustomAxisViewController.m in Sources */,

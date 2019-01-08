@@ -66,6 +66,9 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        
+        self.clipsToBounds = YES;
+        
         [self initDefaultData];
 
         [self.layer addSublayer:self.bgChartsLayer];
@@ -343,19 +346,16 @@
     return _highlightHorizontalLineLayer;
 }
 
-//- (CALayer *)highlightFocusLayer {
-//    if (!_highlightFocusLayer) {
-//        _highlightFocusLayer = [CALayer layer];
-//        _highlightFocusLayer.frame = CGRectMake(0, 0, 10, 10);
-//
-//        CALayer *layer = [CALayer layer];
-//        layer.frame = _highlightFocusLayer.bounds;
-//        layer.backgroundColor = [UIColor redColor].CGColor;;
-//        layer.cornerRadius = layer.height/2;
-//        [_highlightFocusLayer addSublayer:layer];
-//    }
-//    return _highlightFocusLayer;
-//}
+- (CALayer *)highlightFocusLayer {
+    if (!_highlightFocusLayer) {
+        _highlightFocusLayer = [CALayer layer];
+        _highlightFocusLayer.transform = CATransform3DMakeRotation(M_PI, 1, 0, 0);
+        _highlightFocusLayer.contentsScale = [UIScreen mainScreen].scale;
+        _highlightFocusLayer.shouldRasterize = YES;
+        _highlightFocusLayer.shadowOpacity = 0.01;
+    }
+    return _highlightFocusLayer;
+}
 
 - (CALayer *)yAxisLayer {
     if (!_yAxisLayer) {
@@ -472,9 +472,7 @@
         CGFloat a = [points[i] doubleValue];
         CGFloat x = i*w;
         CGFloat y = 0;
-        if (self.axisMaxValue != 0) {
-            y = (self.mainChartsLayer.height-self.yAxisTextModel.font.lineHeight)*a/self.axisMaxValue;
-        }
+        y = (self.mainChartsLayer.height-self.yAxisTextModel.font.lineHeight)*(a-self.axisMinValue)/(self.axisMaxValue-self.axisMinValue);
         if (y < self.chartsLineModel.lineWidth/2) {
             y = self.chartsLineModel.lineWidth/2;
         }
@@ -588,7 +586,6 @@
             break;
         case UIGestureRecognizerStateEnded:
         {
-            self.currentPointIndex = NSIntegerMax;
             [self resetFrameWithChangePoint:focusPoint];
             [self performSelector:@selector(removeHighlightBgView) withObject:nil afterDelay:self.highlightTimeDelay];
         }
@@ -603,9 +600,16 @@
     CGFloat V_w = self.highlightVerticalLineModel.lineWidth;
     CGFloat H_h = self.highlightHorizontalLineModel.lineWidth;
     
-    [self.highlightFocusView viewWillShow];
+    if (!self.highlightFocusLayer.superlayer) {
+        [self.highlightBgView.layer addSublayer:self.highlightFocusLayer];
+    }
+    if ([self.highlightFocusView respondsToSelector:@selector(viewWillShow)]) {
+        [self.highlightFocusView viewWillShow];
+    }
     [UIView animateWithDuration:0.3 animations:^{
-        [self.highlightFocusView viewDidShow];
+        if ([self.highlightFocusView respondsToSelector:@selector(viewDidShow)]) {
+            [self.highlightFocusView viewDidShow];
+        }
         self.highlightBgView.alpha = 1;
     }];
     
@@ -621,10 +625,6 @@
         self.highlightFocusLayer.frame = rect;
     }
     [CATransaction commit];
-    
-    if (!self.highlightFocusLayer.superlayer) {
-        [self.highlightFocusLayer addSublayer:self.highlightFocusView.layer];
-    }
     
     if (!self.highlightView.superview) {
         [self.highlightBgView addSubview:self.highlightView];
@@ -652,9 +652,14 @@
 }
 
 - (void)removeHighlightBgView {
-    [self.highlightFocusView viewWillHidden];
+    self.currentPointIndex =NSUIntegerMax;
+    if ([self.highlightFocusView respondsToSelector:@selector(viewWillHidden)]) {
+        [self.highlightFocusView viewWillHidden];
+    }
     [UIView animateWithDuration:0.3 animations:^{
-        [self.highlightFocusView viewDidHidden];
+        if ([self.highlightFocusView respondsToSelector:@selector(viewDidHidden)]) {
+            [self.highlightFocusView viewDidHidden];
+        }
         self.highlightBgView.alpha = 0;
     }];
 }
@@ -668,12 +673,12 @@
 - (void)setHighlightFocusView:(GLChartsHighlightFocusView *)highlightFocusView {
     [_highlightFocusView.layer removeFromSuperlayer];
     _highlightFocusView = highlightFocusView;
-    highlightFocusView.userInteractionEnabled = NO;
-    
+    _highlightFocusView.userInteractionEnabled = NO;
+    _highlightFocusView.layer.frame = highlightFocusView.bounds;
+//    _highlightFocusView.layer.shadowOpacity = 0.01;
+
     self.highlightFocusLayer.frame = highlightFocusView.bounds;
-    self.highlightFocusLayer.transform = CATransform3DMakeRotation(M_PI, 1, 0, 0);
-//    [self.highlightFocusLayer addSublayer:highlightFocusView.layer];
-    highlightFocusView.layer.frame = highlightFocusView.bounds;
+    [self.highlightFocusLayer addSublayer:_highlightFocusView.layer];
 }
 
 - (CGRect)highlightViewFrameFromPoint:(CGPoint)focusPoint {
@@ -681,16 +686,22 @@
     if (self.highlightView.currentPointBlock) {
         rect = self.highlightView.currentPointBlock(self.currentPointIndex);
     } else {
-        return self.highlightView.bounds;
+        rect = self.highlightView.bounds;
     }
     CGFloat x=0,y=0,w=rect.size.width,h=rect.size.height;
     if (focusPoint.x-self.highlightViewToVerticalLine-self.highlightVerticalLineModel.lineWidth/2 > w) {
         x = focusPoint.x-self.highlightViewToVerticalLine-self.highlightVerticalLineModel.lineWidth/2 - w;
     } else {
-        x = focusPoint.x+self.highlightViewToVerticalLine+self.highlightVerticalLineModel.lineWidth/2;
+        if (self.highlightBgView.width - focusPoint.x-self.highlightVerticalLineModel.lineWidth/2-self.highlightViewToVerticalLine < w) {
+            x = self.highlightBgView.width-w;
+        } else {
+            x = focusPoint.x+self.highlightViewToVerticalLine+self.highlightVerticalLineModel.lineWidth/2;
+        }
     }
     if (self.highlightBgView.height - focusPoint.y - self.highlightHorizontalLineModel.lineWidth/2 - self.highlightViewToHorizontalLine > h) {
         y = focusPoint.y + self.highlightViewToHorizontalLine + self.highlightHorizontalLineModel.lineWidth/2;
+    } else if (focusPoint.y-self.highlightHorizontalLineModel.lineWidth/2-self.highlightViewToHorizontalLine < h) {
+        y = 0;
     } else {
         y = focusPoint.y - h - self.highlightViewToHorizontalLine - self.highlightHorizontalLineModel.lineWidth/2;
     }

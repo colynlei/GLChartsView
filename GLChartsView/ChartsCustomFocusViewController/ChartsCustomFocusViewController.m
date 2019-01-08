@@ -7,10 +7,12 @@
 //
 
 #import "ChartsCustomFocusViewController.h"
+#import "CustomHighlightFocusView.h"
 
 @interface ChartsCustomFocusViewController ()
 
 @property (nonatomic, strong) GLChartsView *chartsView;
+@property (nonatomic, strong) CustomHighlightFocusView *focusView;
 
 @end
 
@@ -25,40 +27,67 @@
 - (GLChartsView *)chartsView {
     if (!_chartsView) {
         _chartsView = [[GLChartsView alloc] init];
-        //        _chartsView.backgroundColor = kColorRandomAlpha(0.1);
-        _chartsView.chartsBackgroundColor = [UIColor clearColor];
-        _chartsView.mainChartsViewInset = UIEdgeInsetsMake(0, 40, 20, 30);
-        _chartsView.yAxisModel.lineWidth = 1;
-        _chartsView.yAxisModel.lineColor = [UIColor blackColor];
-        _chartsView.yAxisModel.isHiden = YES;
-        _chartsView.xAxisModel.lineWidth = 1;
-        _chartsView.xAxisModel.lineColor = [UIColor colorWithHexString:@"#E9ECEF"];
-        _chartsView.yAxisTextModel.textColor = [UIColor colorWithHexString:@"#626D86"];
-        _chartsView.yAxisTextModel.font = kFont_Regular(11);
-        _chartsView.yAxisTextModel.textToAxisGap = 2;
-        _chartsView.yAxisTextModel.textAlignment = NSTextAlignmentRight;
-        _chartsView.yAxisTextModel.lineWidth = 1;
-        _chartsView.yAxisTextModel.lineColor = [UIColor colorWithHexString:@"#F8F8F9"];
-        _chartsView.xAxisTextModel.textColor = [UIColor colorWithHexString:@"#626D86"];
-        _chartsView.xAxisTextModel.font = kFont_Regular(11);
-        _chartsView.xAxisTextModel.textToAxisGap = 4;
-        _chartsView.xAxisTextModel.textAlignment = NSTextAlignmentCenter;
-        _chartsView.xAxisTextModel.lineWidth = 1;
-        _chartsView.xAxisTextModel.lineColor = [UIColor colorWithHexString:@"#F8F8F9"];
-        _chartsView.chartsLineModel.lineWidth = 2;
-        _chartsView.chartsLineModel.lineColor = [UIColor colorWithHexString:@"#25DBEF"];
-        _chartsView.animationDuration = 1.2;
-        _chartsView.highlightVerticalLineModel.lineWidth = 1;
-        _chartsView.highlightVerticalLineModel.lineColor = [UIColor colorWithHexString:@"#95A0B6"];
-        _chartsView.highlightHorizontalLineModel.lineWidth = 1;
-        _chartsView.highlightHorizontalLineModel.lineColor = [UIColor colorWithHexString:@"#95A0B6"];
-        //        _chartsView.highlightFocusView = [self HighlightFocusView];
-        //        _chartsView.highlightView = [self HighlightView];
-        _chartsView.highlightTimeDelay = 1;
-        _chartsView.highlightViewToHorizontalLine = 15;
-        _chartsView.highlightViewToVerticalLine = 5;
+        _chartsView.backgroundColor = kColorRandomAlpha(0.1);
+        _chartsView.highlightFocusView = self.focusView;
     }
     return _chartsView;
+}
+
+- (CustomHighlightFocusView *)focusView {
+    if (!_focusView) {
+        _focusView = [[CustomHighlightFocusView alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
+        _focusView.backgroundColor = [UIColor redColor];
+        _focusView.layer.cornerRadius = _focusView.height/2;
+        _focusView.layer.masksToBounds = YES;
+//        _focusView.layer.contentsScale = [UIScreen mainScreen].scale;
+//        _focusView.layer.shouldRasterize=YES;
+
+    }
+    return _focusView;
+}
+
+- (void)chartsData:(NSArray *)data {
+    NSInteger max = 0;
+    NSInteger mix = 0;
+    NSMutableArray *points = [NSMutableArray arrayWithCapacity:0];
+    NSMutableArray *xData =[NSMutableArray arrayWithCapacity:0];
+    for (NSInteger i = 0; i < data.count; i++) {
+        NSDictionary *dic = data[i];
+        NSInteger y = [dic[@"temp"] integerValue];
+        max = max>y?max:y;
+        mix = mix>y?y:mix;
+        [points addObject:dic[@"temp"]];
+        [xData addObject:dic[@"date"]];
+    }
+    
+    NSInteger t = max -mix;
+    CGFloat p = t/7.0;
+    
+    CGFloat y=mix;
+    NSInteger b = 0;
+    NSMutableArray *arr = [NSMutableArray arrayWithObject:[NSString stringWithFormat:@"%ld",(NSInteger)mix]];
+    while (b < 7) {
+        b++;
+        y += p;
+        [arr addObject:[NSString stringWithFormat:@"%ld",(NSInteger)y]];
+    }
+    
+    self.chartsView.axisMaxValue = max;
+    self.chartsView.axisMinValue = mix;
+    self.chartsView.yAxisData = arr;
+    self.chartsView.xAxisData = xData;
+    self.chartsView.points = points;
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    CGFloat h = 200;
+    self.chartsView.frame = CGRectMake(0, self.view.height/2-h/2, kScreenWidth, 200);
+    
+    CGRect rect = self.segmentedContrl.frame;
+    rect.origin.y = CGRectGetMaxY(self.chartsView.frame)+20;
+    self.segmentedContrl.frame = rect;
 }
 
 /*

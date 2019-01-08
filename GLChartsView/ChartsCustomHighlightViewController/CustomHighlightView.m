@@ -79,7 +79,6 @@
     self.descLabel.frame = CGRectMake(x, y, w, h);
     
     return CGRectMake(0, 0, self_w, CGRectGetMaxY(self.descLabel.frame)+gap);
-    
 }
 
 @end

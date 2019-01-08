@@ -71,16 +71,18 @@
 
 - (CustomHighlightView *)highlightView {
     if (!_highlightView) {
-        _highlightView = [[CustomHighlightView alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
+        _highlightView = [[CustomHighlightView alloc] initWithFrame:CGRectMake(0, 0, 200, 50)];
         _highlightView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
-        _highlightView.layer.cornerRadius = 3;
+        _highlightView.layer.cornerRadius = 6;
+        _highlightView.layer.masksToBounds = YES;
+//        _highlightView.layer.shouldRasterize = YES;
         kWeakSelf(self);
         _highlightView.currentPointBlock = ^CGRect(NSInteger index) {
             kStrongSelf(self);
             return [strongself->_highlightView currentPointData:strongself.data[index]];
         };
     }
-        return _highlightView;
+    return _highlightView;
 }
 
 - (void)viewDidLayoutSubviews {
