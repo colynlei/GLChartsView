@@ -36,11 +36,7 @@
 - (CustomHighlightFocusView *)focusView {
     if (!_focusView) {
         _focusView = [[CustomHighlightFocusView alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
-        _focusView.backgroundColor = [UIColor redColor];
-        _focusView.layer.cornerRadius = _focusView.height/2;
-        _focusView.layer.masksToBounds = YES;
-//        _focusView.layer.contentsScale = [UIScreen mainScreen].scale;
-//        _focusView.layer.shouldRasterize=YES;
+//        _focusView.backgroundColor = [UIColor redColor];
 
     }
     return _focusView;

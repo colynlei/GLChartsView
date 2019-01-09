@@ -350,9 +350,6 @@
     if (!_highlightFocusLayer) {
         _highlightFocusLayer = [CALayer layer];
         _highlightFocusLayer.transform = CATransform3DMakeRotation(M_PI, 1, 0, 0);
-        _highlightFocusLayer.contentsScale = [UIScreen mainScreen].scale;
-        _highlightFocusLayer.shouldRasterize = YES;
-        _highlightFocusLayer.shadowOpacity = 0.01;
     }
     return _highlightFocusLayer;
 }
@@ -675,7 +672,6 @@
     _highlightFocusView = highlightFocusView;
     _highlightFocusView.userInteractionEnabled = NO;
     _highlightFocusView.layer.frame = highlightFocusView.bounds;
-//    _highlightFocusView.layer.shadowOpacity = 0.01;
 
     self.highlightFocusLayer.frame = highlightFocusView.bounds;
     [self.highlightFocusLayer addSublayer:_highlightFocusView.layer];
