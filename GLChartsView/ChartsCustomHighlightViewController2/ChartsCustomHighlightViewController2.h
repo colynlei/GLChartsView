@@ -1,5 +1,5 @@
 //
-//  ChartsCustomHighlightViewController.h
+//  ChartsCustomHighlightViewController2.h
 //  GLChartsView
 //
 //  Created by 雷国林 on 2019/1/4.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ChartsCustomHighlightViewController : ChartsBaseViewController
+@interface ChartsCustomHighlightViewController2 : ChartsBaseViewController
 
 @end
 

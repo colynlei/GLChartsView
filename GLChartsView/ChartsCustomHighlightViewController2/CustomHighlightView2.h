@@ -1,5 +1,5 @@
 //
-//  CustomHighlightView.h
+//  CustomHighlightView2.h
 //  GLChartsView
 //
 //  Created by 雷国林 on 2019/1/7.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CustomHighlightView : GLChartsHighlightView
+@interface CustomHighlightView2 : GLChartsHighlightView
 
 - (CGRect)currentPointData:(NSDictionary *)data;
 

@@ -20,13 +20,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-//        self.backgroundColor = [UIColor blackColor];
-        self.bgView = [[UIView alloc] init];
-        self.bgView.backgroundColor = [UIColor greenColor];
-        self.bgView.layer.cornerRadius = self.bgView.height/2;
-        self.bgView.layer.masksToBounds = YES;
-        [self addSubview:self.bgView];
-        
+        self.backgroundColor = [UIColor redColor];
     }
     return self;
 }

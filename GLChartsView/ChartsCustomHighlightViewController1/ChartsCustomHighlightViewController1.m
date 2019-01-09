@@ -1,23 +1,23 @@
 //
-//  ChartsCustomHighlightViewController.m
+//  ChartsCustomHighlightViewController1.m
 //  GLChartsView
 //
-//  Created by 雷国林 on 2019/1/4.
+//  Created by 雷国林 on 2019/1/9.
 //  Copyright © 2019 雷国林. All rights reserved.
 //
 
-#import "ChartsCustomHighlightViewController.h"
-#import "CustomHighlightView.h"
+#import "ChartsCustomHighlightViewController1.h"
+#import "CustomHighlightView1.h"
 
-@interface ChartsCustomHighlightViewController ()
+@interface ChartsCustomHighlightViewController1 ()
 
 @property (nonatomic, strong) GLChartsView *chartsView;
-@property (nonatomic, strong) CustomHighlightView *highlightView;
+@property (nonatomic, strong) CustomHighlightView1 *highlightView;
 @property (nonatomic, strong) NSArray *data;
 
 @end
 
-@implementation ChartsCustomHighlightViewController
+@implementation ChartsCustomHighlightViewController1
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -69,18 +69,10 @@
     self.chartsView.points = points;
 }
 
-- (CustomHighlightView *)highlightView {
+- (CustomHighlightView1 *)highlightView {
     if (!_highlightView) {
-        _highlightView = [[CustomHighlightView alloc] initWithFrame:CGRectMake(0, 0, 200, 50)];
+        _highlightView = [[CustomHighlightView1 alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];
         _highlightView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
-        _highlightView.layer.cornerRadius = 6;
-        _highlightView.layer.masksToBounds = YES;
-//        _highlightView.layer.shouldRasterize = YES;
-        kWeakSelf(self);
-        _highlightView.currentPointBlock = ^CGRect(NSInteger index) {
-            kStrongSelf(self);
-            return [strongself->_highlightView currentPointData:strongself.data[index]];
-        };
     }
     return _highlightView;
 }
@@ -95,5 +87,15 @@
     rect.origin.y = CGRectGetMaxY(self.chartsView.frame)+20;
     self.segmentedContrl.frame = rect;
 }
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

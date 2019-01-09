@@ -1,15 +1,15 @@
 
 //
-//  CustomHighlightView.m
+//  CustomHighlightView2.m
 //  GLChartsView
 //
 //  Created by 雷国林 on 2019/1/7.
 //  Copyright © 2019 雷国林. All rights reserved.
 //
 
-#import "CustomHighlightView.h"
+#import "CustomHighlightView2.h"
 
-@interface CustomHighlightView ()
+@interface CustomHighlightView2 ()
 
 @property (nonatomic, strong) UILabel *dateLabel;
 @property (nonatomic, strong) UILabel *weatherLabel;
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation CustomHighlightView
+@implementation CustomHighlightView2
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];

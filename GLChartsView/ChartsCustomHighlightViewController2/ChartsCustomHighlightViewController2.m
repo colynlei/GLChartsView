@@ -1,26 +1,28 @@
 //
-//  ChartsCustomFocusViewController.m
+//  ChartsCustomHighlightViewController2.m
 //  GLChartsView
 //
 //  Created by 雷国林 on 2019/1/4.
 //  Copyright © 2019 雷国林. All rights reserved.
 //
 
-#import "ChartsCustomFocusViewController.h"
-#import "CustomHighlightFocusView.h"
+#import "ChartsCustomHighlightViewController2.h"
+#import "CustomHighlightView2.h"
 
-@interface ChartsCustomFocusViewController ()
+@interface ChartsCustomHighlightViewController2 ()
 
 @property (nonatomic, strong) GLChartsView *chartsView;
-@property (nonatomic, strong) CustomHighlightFocusView *focusView;
+@property (nonatomic, strong) CustomHighlightView2 *highlightView;
+@property (nonatomic, strong) NSArray *data;
 
 @end
 
-@implementation ChartsCustomFocusViewController
+@implementation ChartsCustomHighlightViewController2
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     [self.view addSubview:self.chartsView];
 }
 
@@ -28,23 +30,13 @@
     if (!_chartsView) {
         _chartsView = [[GLChartsView alloc] init];
         _chartsView.backgroundColor = kColorRandomAlpha(0.1);
-        _chartsView.highlightFocusView = self.focusView;
+        _chartsView.highlightView = self.highlightView;
     }
     return _chartsView;
 }
 
-- (CustomHighlightFocusView *)focusView {
-    if (!_focusView) {
-        _focusView = [[CustomHighlightFocusView alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
-        _focusView.backgroundColor = [UIColor redColor];
-        _focusView.layer.cornerRadius = _focusView.height/2;
-        _focusView.layer.masksToBounds = YES;
-
-    }
-    return _focusView;
-}
-
 - (void)chartsData:(NSArray *)data {
+    self.data = data;
     NSInteger max = 0;
     NSInteger mix = 0;
     NSMutableArray *points = [NSMutableArray arrayWithCapacity:0];
@@ -63,11 +55,11 @@
     
     CGFloat y=mix;
     NSInteger b = 0;
-    NSMutableArray *arr = [NSMutableArray arrayWithObject:[NSString stringWithFormat:@"%ld",(NSInteger)mix]];
+    NSMutableArray *arr = [NSMutableArray arrayWithObject:[NSString stringWithFormat:@"%d",(NSInteger)mix]];
     while (b < 7) {
         b++;
         y += p;
-        [arr addObject:[NSString stringWithFormat:@"%ld",(NSInteger)y]];
+        [arr addObject:[NSString stringWithFormat:@"%d",(NSInteger)y]];
     }
     
     self.chartsView.axisMaxValue = max;
@@ -75,6 +67,22 @@
     self.chartsView.yAxisData = arr;
     self.chartsView.xAxisData = xData;
     self.chartsView.points = points;
+}
+
+- (CustomHighlightView2 *)highlightView {
+    if (!_highlightView) {
+        _highlightView = [[CustomHighlightView2 alloc] initWithFrame:CGRectMake(0, 0, 200, 50)];
+        _highlightView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
+        _highlightView.layer.cornerRadius = 6;
+        _highlightView.layer.masksToBounds = YES;
+//        _highlightView.layer.shouldRasterize = YES;
+        kWeakSelf(self);
+        _highlightView.highlightFrameBlock = ^CGRect(NSInteger currentIndex) {
+            kStrongSelf(self);
+            return [strongself->_highlightView currentPointData:strongself.data[currentIndex]];
+        };
+    }
+    return _highlightView;
 }
 
 - (void)viewDidLayoutSubviews {
@@ -87,15 +95,5 @@
     rect.origin.y = CGRectGetMaxY(self.chartsView.frame)+20;
     self.segmentedContrl.frame = rect;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

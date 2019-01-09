@@ -90,7 +90,7 @@
 - (UIView *)highlightBgView {
     if (!_highlightBgView) {
         _highlightBgView = [UIView new];
-        _highlightBgView.layer.transform = CATransform3DMakeRotation(M_PI, 1, 0, 0);
+//        _highlightBgView.layer.transform = CATransform3DMakeRotation(M_PI, 1, 0, 0);
         _highlightBgView.alpha = 0;
     }
     return _highlightBgView;
@@ -321,7 +321,7 @@
 - (CAShapeLayer *)mainChartsLayer {
     if (!_mainChartsLayer) {
         _mainChartsLayer = [CAShapeLayer layer];
-        _mainChartsLayer.transform = CATransform3DMakeRotation(M_PI, 1, 0, 0);
+//        _mainChartsLayer.transform = CATransform3DMakeRotation(M_PI, 1, 0, 0);
         
         _mainChartsLayer.fillColor = [UIColor clearColor].CGColor;
         _mainChartsLayer.lineCap = kCALineCapRound;
@@ -349,7 +349,7 @@
 - (CALayer *)highlightFocusLayer {
     if (!_highlightFocusLayer) {
         _highlightFocusLayer = [CALayer layer];
-        _highlightFocusLayer.transform = CATransform3DMakeRotation(M_PI, 1, 0, 0);
+//        _highlightFocusLayer.transform = CATransform3DMakeRotation(M_PI, 1, 0, 0);
     }
     return _highlightFocusLayer;
 }
@@ -468,8 +468,7 @@
     for (NSInteger i = 0; i < points.count; i++) {
         CGFloat a = [points[i] doubleValue];
         CGFloat x = i*w;
-        CGFloat y = 0;
-        y = (self.mainChartsLayer.height-self.yAxisTextModel.font.lineHeight)*(a-self.axisMinValue)/(self.axisMaxValue-self.axisMinValue);
+        CGFloat y = self.mainChartsLayer.height-(self.mainChartsLayer.height-self.yAxisTextModel.font.lineHeight)*(a-self.axisMinValue)/(self.axisMaxValue-self.axisMinValue);
         if (y < self.chartsLineModel.lineWidth/2) {
             y = self.chartsLineModel.lineWidth/2;
         }
@@ -664,7 +663,7 @@
 - (void)setHighlightView:(GLChartsHighlightView *)highlightView {
     [_highlightView removeFromSuperview];
     _highlightView = highlightView;
-    _highlightView.layer.transform = CATransform3DMakeRotation(M_PI, 1, 0, 0);
+//    _highlightView.layer.transform = CATransform3DMakeRotation(M_PI, 1, 0, 0);
 }
 
 - (void)setHighlightFocusView:(GLChartsHighlightFocusView *)highlightFocusView {
@@ -679,27 +678,25 @@
 
 - (CGRect)highlightViewFrameFromPoint:(CGPoint)focusPoint {
     CGRect rect = CGRectZero;
-    if (self.highlightView.currentPointBlock) {
-        rect = self.highlightView.currentPointBlock(self.currentPointIndex);
+    if (self.highlightView.highlightFrameBlock) {
+        rect = self.highlightView.highlightFrameBlock(self.currentPointIndex);
     } else {
         rect = self.highlightView.bounds;
     }
     CGFloat x=0,y=0,w=rect.size.width,h=rect.size.height;
     if (focusPoint.x-self.highlightViewToVerticalLine-self.highlightVerticalLineModel.lineWidth/2 > w) {
         x = focusPoint.x-self.highlightViewToVerticalLine-self.highlightVerticalLineModel.lineWidth/2 - w;
+    } else if (self.highlightBgView.width - focusPoint.x-self.highlightVerticalLineModel.lineWidth/2-self.highlightViewToVerticalLine < w) {
+        x = self.highlightBgView.width-w;
     } else {
-        if (self.highlightBgView.width - focusPoint.x-self.highlightVerticalLineModel.lineWidth/2-self.highlightViewToVerticalLine < w) {
-            x = self.highlightBgView.width-w;
-        } else {
-            x = focusPoint.x+self.highlightViewToVerticalLine+self.highlightVerticalLineModel.lineWidth/2;
-        }
+        x = focusPoint.x+self.highlightViewToVerticalLine+self.highlightVerticalLineModel.lineWidth/2;
     }
-    if (self.highlightBgView.height - focusPoint.y - self.highlightHorizontalLineModel.lineWidth/2 - self.highlightViewToHorizontalLine > h) {
-        y = focusPoint.y + self.highlightViewToHorizontalLine + self.highlightHorizontalLineModel.lineWidth/2;
-    } else if (focusPoint.y-self.highlightHorizontalLineModel.lineWidth/2-self.highlightViewToHorizontalLine < h) {
+    if (focusPoint.y-self.highlightHorizontalLineModel.lineWidth/2-self.highlightViewToHorizontalLine > h) {
+        y = focusPoint.y-self.highlightHorizontalLineModel.lineWidth/2-self.highlightViewToHorizontalLine - h;
+    } else if (self.highlightBgView.height - focusPoint.y - self.highlightHorizontalLineModel.lineWidth/2 - self.highlightViewToHorizontalLine < h) {
         y = 0;
     } else {
-        y = focusPoint.y - h - self.highlightViewToHorizontalLine - self.highlightHorizontalLineModel.lineWidth/2;
+        y = focusPoint.y + self.highlightViewToHorizontalLine + self.highlightHorizontalLineModel.lineWidth/2;
     }
     return CGRectMake(x, y, w, h);
 }
