@@ -1,20 +1,24 @@
 //
-//  ChartsCustomAxisViewController.m
+//  ChartsCustomAllViewController.m
 //  GLChartsView
 //
-//  Created by 雷国林 on 2019/1/4.
+//  Created by 雷国林 on 2019/1/10.
 //  Copyright © 2019 雷国林. All rights reserved.
 //
 
-#import "ChartsCustomAxisViewController.h"
+#import "ChartsCustomAllViewController.h"
+#import "CustomHighlightFocusAnimationView.h"
+#import "CustomHighlightView2.h"
 
-@interface ChartsCustomAxisViewController ()
+@interface ChartsCustomAllViewController ()
 
 @property (nonatomic, strong) GLChartsView *chartsView;
+@property (nonatomic, strong) CustomHighlightView2 *highlightView;
+@property (nonatomic, strong) NSArray *data;
 
 @end
 
-@implementation ChartsCustomAxisViewController
+@implementation ChartsCustomAllViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,16 +30,37 @@
     if (!_chartsView) {
         _chartsView = [[GLChartsView alloc] init];
         _chartsView.backgroundColor = kColorRandomAlpha(0.1);
-//        _chartsView.yAxisItem.lineWidth = 1;
-//        _chartsView.yAxisItem.lineColor = [UIColor blackColor];
-        _chartsView.yAxisItem.isHiden = YES;
-        _chartsView.xAxisItem.lineWidth = 2;
-        _chartsView.xAxisItem.lineColor = [UIColor colorWithWhite:0 alpha:0.6];
+        _chartsView.highlightView = self.highlightView;
+        _chartsView.highlightViewToVerticalLine = 7;
+        _chartsView.highlightViewToHorizontalLine = 7;
     }
     return _chartsView;
 }
 
+- (CustomHighlightFocusAnimationView *)focusViewWithColor:(UIColor *)color {
+    CustomHighlightFocusAnimationView *focusView = [[CustomHighlightFocusAnimationView alloc] initWithFrame:CGRectMake(0, 0, 8, 8)];
+    focusView.focusColor = color;
+    return focusView;
+}
+
+- (CustomHighlightView2 *)highlightView {
+    if (!_highlightView) {
+        _highlightView = [[CustomHighlightView2 alloc] initWithFrame:CGRectMake(0, 0, 200, 50)];
+        _highlightView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
+        _highlightView.layer.cornerRadius = 6;
+        _highlightView.layer.masksToBounds = YES;
+        //        _highlightView.layer.shouldRasterize = YES;
+        kWeakSelf(self);
+        _highlightView.highlightFrameBlock = ^CGRect(NSInteger currentIndex) {
+            kStrongSelf(self);
+            return [strongself->_highlightView currentPointData:strongself.data[currentIndex]];
+        };
+    }
+    return _highlightView;
+}
+
 - (void)chartsData:(NSArray *)data {
+    self.data = data;
     NSInteger max = 0;
     NSInteger mix = 0;
     NSMutableArray *points = [NSMutableArray arrayWithCapacity:0];
@@ -66,11 +91,14 @@
     self.chartsView.yAxisData = arr;
     self.chartsView.xAxisData = xData;
 
-    GLChartsLineItem *model = [[GLChartsLineItem alloc] init];
-    model.points = points;
-    model.lineColor = [UIColor greenColor];
-    model.lineWidth = 2;
-    self.chartsView.chartsLines = @[model];
+    GLChartsLineItem *model1 = [[GLChartsLineItem alloc] init];
+    model1.points = points;
+    model1.lineColor = [UIColor redColor];
+    model1.lineWidth = 1;
+    model1.focusView = [self focusViewWithColor:[UIColor greenColor]];
+    
+    self.chartsView.chartsLines = @[model1];
+
 }
 
 - (void)viewDidLayoutSubviews {

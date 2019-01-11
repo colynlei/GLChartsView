@@ -66,7 +66,12 @@
     self.chartsView.axisMinValue = mix;
     self.chartsView.yAxisData = arr;
     self.chartsView.xAxisData = xData;
-    self.chartsView.points = points;
+
+    GLChartsLineItem *model = [[GLChartsLineItem alloc] init];
+    model.points = points;
+    model.lineColor = [UIColor greenColor];
+    model.lineWidth = 2;
+    self.chartsView.chartsLines = @[model];
 }
 
 - (CustomHighlightView1 *)highlightView {

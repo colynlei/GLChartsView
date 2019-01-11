@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import "GLMacro.h"
 #import <YYKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -19,6 +18,12 @@ gl_ColorRGBA(arc4random_uniform(256),arc4random_uniform(256),arc4random_uniform(
 #define gl_ColorRandom gl_ColorRandomAlpha(1.0f)
 #define gl_ColorWithHexAndAlpha(rgbValue,a) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16)) / 255.0 green:((float)((rgbValue & 0xFF00) >> 8)) / 255.0 blue:((float)(rgbValue & 0xFF)) / 255.0 alpha:a]
 #define gl_ColorWithHex(rgbValue) gl_ColorWithHexAndAlpha(rgbValue,1.0f)
+
+
+#define GLChartsViewFocusViewWillShow   @"GLChartsViewFocusViewWillShow"
+#define GLChartsViewFocusViewDidShow    @"GLChartsViewFocusViewDidShow"
+#define GLChartsViewFocusViewWillHidden @"GLChartsViewFocusViewWillHidden"
+#define GLChartsViewFocusViewDidHidden  @"GLChartsViewFocusViewDidHidden"
 
 
 @interface GLChartsUtils : NSObject

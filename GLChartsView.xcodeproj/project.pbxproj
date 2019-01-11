@@ -10,6 +10,9 @@
 		7A70D3DC21E44C1000F42FFD /* CustomHighlightFocusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A70D3DB21E44C1000F42FFD /* CustomHighlightFocusView.m */; };
 		7A70D40221E5926300F42FFD /* ChartsCustomHighlightViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A70D40121E5926300F42FFD /* ChartsCustomHighlightViewController1.m */; };
 		7A70D40521E593F900F42FFD /* CustomHighlightView1.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A70D40421E593F900F42FFD /* CustomHighlightView1.m */; };
+		7A70D40821E59C6C00F42FFD /* CustomHighlightFocusAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A70D40721E59C6C00F42FFD /* CustomHighlightFocusAnimationView.m */; };
+		7A70D41B21E6F10B00F42FFD /* ChartsCustomAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A70D41A21E6F10B00F42FFD /* ChartsCustomAllViewController.m */; };
+		7A70D41E21E6F12700F42FFD /* ChartsMoreChartsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A70D41D21E6F12700F42FFD /* ChartsMoreChartsViewController.m */; };
 		7AE9B0BE21DEFCE000330976 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B0BD21DEFCE000330976 /* AppDelegate.m */; };
 		7AE9B0C121DEFCE000330976 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B0C021DEFCE000330976 /* ViewController.m */; };
 		7AE9B0C421DEFCE000330976 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AE9B0C221DEFCE000330976 /* Main.storyboard */; };
@@ -40,6 +43,12 @@
 		7A70D40121E5926300F42FFD /* ChartsCustomHighlightViewController1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartsCustomHighlightViewController1.m; sourceTree = "<group>"; };
 		7A70D40321E593F900F42FFD /* CustomHighlightView1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomHighlightView1.h; sourceTree = "<group>"; };
 		7A70D40421E593F900F42FFD /* CustomHighlightView1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomHighlightView1.m; sourceTree = "<group>"; };
+		7A70D40621E59C6C00F42FFD /* CustomHighlightFocusAnimationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomHighlightFocusAnimationView.h; sourceTree = "<group>"; };
+		7A70D40721E59C6C00F42FFD /* CustomHighlightFocusAnimationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomHighlightFocusAnimationView.m; sourceTree = "<group>"; };
+		7A70D41921E6F10B00F42FFD /* ChartsCustomAllViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartsCustomAllViewController.h; sourceTree = "<group>"; };
+		7A70D41A21E6F10B00F42FFD /* ChartsCustomAllViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartsCustomAllViewController.m; sourceTree = "<group>"; };
+		7A70D41C21E6F12700F42FFD /* ChartsMoreChartsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartsMoreChartsViewController.h; sourceTree = "<group>"; };
+		7A70D41D21E6F12700F42FFD /* ChartsMoreChartsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartsMoreChartsViewController.m; sourceTree = "<group>"; };
 		7AE9B0B921DEFCE000330976 /* GLChartsView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GLChartsView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AE9B0BC21DEFCE000330976 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7AE9B0BD21DEFCE000330976 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -120,6 +129,24 @@
 			path = ChartsCustomHighlightViewController1;
 			sourceTree = "<group>";
 		};
+		7A70D41721E6F0BE00F42FFD /* ChartsMoreChartsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7A70D41C21E6F12700F42FFD /* ChartsMoreChartsViewController.h */,
+				7A70D41D21E6F12700F42FFD /* ChartsMoreChartsViewController.m */,
+			);
+			path = ChartsMoreChartsViewController;
+			sourceTree = "<group>";
+		};
+		7A70D41821E6F0E100F42FFD /* ChartsCustomAllViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7A70D41921E6F10B00F42FFD /* ChartsCustomAllViewController.h */,
+				7A70D41A21E6F10B00F42FFD /* ChartsCustomAllViewController.m */,
+			);
+			path = ChartsCustomAllViewController;
+			sourceTree = "<group>";
+		};
 		7AE9B0B021DEFCE000330976 = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +183,8 @@
 				7AE9B10021E0B81B00330976 /* ChartsCustomHighlightViewController2 */,
 				7AE9B10121E0B83800330976 /* ChartsCustomAxisViewController */,
 				7AE9B10221E0B84200330976 /* ChartsCustomGridViewController */,
+				7A70D41821E6F0E100F42FFD /* ChartsCustomAllViewController */,
+				7A70D41721E6F0BE00F42FFD /* ChartsMoreChartsViewController */,
 				7AE9B0C221DEFCE000330976 /* Main.storyboard */,
 				7AE9B0C521DEFCE200330976 /* Assets.xcassets */,
 				7AE9B0C721DEFCE200330976 /* LaunchScreen.storyboard */,
@@ -206,6 +235,8 @@
 			children = (
 				7AE9B0F721DF5BB100330976 /* ChartsCustomFocusAnimationViewController.h */,
 				7AE9B0F821DF5BB100330976 /* ChartsCustomFocusAnimationViewController.m */,
+				7A70D40621E59C6C00F42FFD /* CustomHighlightFocusAnimationView.h */,
+				7A70D40721E59C6C00F42FFD /* CustomHighlightFocusAnimationView.m */,
 			);
 			path = ChartsCustomFocusAnimationViewController;
 			sourceTree = "<group>";
@@ -338,6 +369,7 @@
 			files = (
 				7AE9B0F921DF5BB100330976 /* ChartsCustomFocusAnimationViewController.m in Sources */,
 				7AE9B10721E3361600330976 /* CustomHighlightView2.m in Sources */,
+				7A70D41B21E6F10B00F42FFD /* ChartsCustomAllViewController.m in Sources */,
 				7AE9B0E421DEFDEC00330976 /* GLChartsUtils.m in Sources */,
 				7A70D3DC21E44C1000F42FFD /* CustomHighlightFocusView.m in Sources */,
 				7AE9B0EA21DF534200330976 /* ChartsDefaultViewController.m in Sources */,
@@ -345,9 +377,11 @@
 				7AE9B0F321DF572100330976 /* ChartsCustomAxisViewController.m in Sources */,
 				7AE9B0F621DF57F900330976 /* ChartsCustomGridViewController.m in Sources */,
 				7A70D40521E593F900F42FFD /* CustomHighlightView1.m in Sources */,
+				7A70D40821E59C6C00F42FFD /* CustomHighlightFocusAnimationView.m in Sources */,
 				7A70D40221E5926300F42FFD /* ChartsCustomHighlightViewController1.m in Sources */,
 				7AE9B0ED21DF55AF00330976 /* ChartsCustomFocusViewController.m in Sources */,
 				7AE9B0DF21DEFDEC00330976 /* GLChartsView.m in Sources */,
+				7A70D41E21E6F12700F42FFD /* ChartsMoreChartsViewController.m in Sources */,
 				7AE9B0FC21E0B47400330976 /* ChartsBaseViewController.m in Sources */,
 				7AE9B0E221DEFDEC00330976 /* GLChartsHighlightView.m in Sources */,
 				7AE9B0CC21DEFCE200330976 /* main.m in Sources */,

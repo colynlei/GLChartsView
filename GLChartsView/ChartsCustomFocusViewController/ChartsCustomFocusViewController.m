@@ -28,18 +28,16 @@
     if (!_chartsView) {
         _chartsView = [[GLChartsView alloc] init];
         _chartsView.backgroundColor = kColorRandomAlpha(0.1);
-        _chartsView.highlightFocusView = self.focusView;
     }
     return _chartsView;
 }
 
 - (CustomHighlightFocusView *)focusView {
     if (!_focusView) {
-        _focusView = [[CustomHighlightFocusView alloc] initWithFrame:CGRectMake(0, 0, 15, 15)];
+        _focusView = [[CustomHighlightFocusView alloc] initWithFrame:CGRectMake(0, 0, 8, 8)];
         _focusView.backgroundColor = [UIColor redColor];
         _focusView.layer.cornerRadius = _focusView.height/2;
         _focusView.layer.masksToBounds = YES;
-
     }
     return _focusView;
 }
@@ -74,7 +72,12 @@
     self.chartsView.axisMinValue = mix;
     self.chartsView.yAxisData = arr;
     self.chartsView.xAxisData = xData;
-    self.chartsView.points = points;
+
+    GLChartsLineItem *model = [[GLChartsLineItem alloc] init];
+    model.points = points;
+    model.lineColor = [UIColor greenColor];
+    model.lineWidth = 2;
+    self.chartsView.chartsLines = @[model];
 }
 
 - (void)viewDidLayoutSubviews {

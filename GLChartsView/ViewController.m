@@ -38,8 +38,11 @@ typedef void (^aablock)(void);
                         @{@"title":@"自定义坐标轴",
                           @"viewController":@"ChartsCustomAxisViewController"},
                         @{@"title":@"自定义网格线",
-                          @"viewController":@"ChartsCustomGridViewController"}];
-    
+                          @"viewController":@"ChartsCustomGridViewController"},
+                        @{@"title":@"所有参数自定义",
+                          @"viewController":@"ChartsCustomAllViewController"},
+                        @{@"title":@"多条折线图",
+                          @"viewController":@"ChartsMoreChartsViewController"}];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

@@ -10,8 +10,6 @@
 
 @implementation GLChartsHighlightView
 
-- (void)currentPointIndex:(NSInteger)index{}
-
 - (void)drawRect:(CGRect)rect {
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetAllowsAntialiasing(context, true);
