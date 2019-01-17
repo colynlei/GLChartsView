@@ -34,6 +34,7 @@
         _chartsView.highlightView = self.highlightView;
         _chartsView.highlightViewToVerticalLine = 7;
         _chartsView.highlightViewToHorizontalLine = 7;
+        _chartsView.animationDuration = 1.5;
     }
     return _chartsView;
 }
@@ -50,7 +51,6 @@
         _highlightView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
         _highlightView.layer.cornerRadius = 6;
         _highlightView.layer.masksToBounds = YES;
-        //        _highlightView.layer.shouldRasterize = YES;
         kWeakSelf(self);
         _highlightView.highlightFrameBlock = ^CGRect(NSInteger currentIndex) {
             kStrongSelf(self);
@@ -96,18 +96,17 @@
     
     GLChartsLineItem *model1 = [[GLChartsLineItem alloc] init];
     model1.points = points;
-    model1.lineColor = [UIColor greenColor];
-    model1.lineWidth = 1;
-    model1.focusView = [self focusViewWithColor:[UIColor greenColor]];
+    model1.lineColor = [UIColor colorWithHexString:@"#25DBEF"];
+    model1.lineWidth = 2;
+    model1.focusView = [self focusViewWithColor:model1.lineColor];
     
     GLChartsLineItem *model2 = [[GLChartsLineItem alloc] init];
     model2.points = pp;
     model2.lineColor = [UIColor redColor];
-    model2.lineWidth = 1;
+    model2.lineWidth = 2;
     model2.focusView = [self focusViewWithColor:[UIColor redColor]];
     
     self.chartsView.chartsLines = @[model1,model2];
-    
 }
 
 - (void)viewDidLayoutSubviews {

@@ -95,7 +95,7 @@
     model1.points = points;
     model1.lineColor = [UIColor redColor];
     model1.lineWidth = 1;
-    model1.focusView = [self focusViewWithColor:[UIColor greenColor]];
+    model1.focusView = [self focusViewWithColor:[UIColor redColor]];
     
     self.chartsView.chartsLines = @[model1];
 

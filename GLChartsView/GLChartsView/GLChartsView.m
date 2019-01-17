@@ -782,9 +782,7 @@
 }
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
-    if (flag == YES) {
-        [self.mainChartsLayer removeAnimationForKey:@"lineAnimationStrokeEnd"];
-    }
+    [self.mainChartsLayer removeAnimationForKey:@"lineAnimationStrokeEnd"];
 }
 
 - (void)layoutSubviews {

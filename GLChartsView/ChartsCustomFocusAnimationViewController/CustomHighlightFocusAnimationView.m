@@ -11,7 +11,7 @@
 #define AnimationDuration 3
 #define AnimationLayerDelay 1
 
-@interface CustomHighlightFocusAnimationView ()
+@interface CustomHighlightFocusAnimationView ()<CAAnimationDelegate>
 
 @property (nonatomic, strong) CAShapeLayer *animationLayer;
 
@@ -48,20 +48,18 @@
 
 - (void)chartsViewFocusViewWillShow {
     CABasicAnimation *an1 = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
-    //        an1.duration = duration;
     an1.fromValue = @(0);
     an1.toValue = @(3);
-    an1.repeatCount = 0;
-    an1.removedOnCompletion = NO;
-    an1.fillMode = kCAFillModeForwards;
+//    an1.repeatCount = 0;
+//    an1.removedOnCompletion = NO;
+//    an1.fillMode = kCAFillModeForwards;
     
     CABasicAnimation *an2 = [CABasicAnimation animationWithKeyPath:@"opacity"];
-    //        an2.duration = duration;
-    an2.fromValue = @(0.8);
+    an2.fromValue = @(1);
     an2.toValue = @(0);
-    an2.repeatCount = 0;
-    an2.removedOnCompletion = NO;
-    an2.fillMode = kCAFillModeForwards;
+//    an2.repeatCount = 0;
+//    an2.removedOnCompletion = NO;
+//    an2.fillMode = kCAFillModeForwards;
     
     CAAnimationGroup *group = [CAAnimationGroup animation];
     group.animations = @[an1,an2];
@@ -69,11 +67,16 @@
     group.beginTime = -AnimationDuration;
     group.repeatCount = HUGE;
     group.removedOnCompletion = NO;
+    group.delegate = self;
     
-//    self.animationLayer.fillColor = self.focusColor.CGColor;
-    self.animationLayer.fillColor = kColorRandom.CGColor;
+    self.animationLayer.fillColor = self.focusColor.CGColor;
+//    self.animationLayer.fillColor = kColorRandom.CGColor;
 
-    [self.animationLayer addAnimation:group forKey:nil];
+    [self.animationLayer addAnimation:group forKey:@"TransformScaleAndOpacityAnimation"];
+}
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    [self.animationLayer removeAnimationForKey:@"TransformScaleAndOpacityAnimation"];
 }
 
 - (void)chartsViewFocusViewDidHidden {
