@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "GLChartsView"
-  s.version      = "1.2.9"
+  s.version      = "1.2.11"
   s.summary      = "封装折线图，可高度自定义，线宽，坐标轴，网格线，折线线宽，折线颜色，折线动画，焦点动画，焦点视图等"
   s.description  = <<-DESC 
                           GLChartsView 是一个简单封装的折线图框架
