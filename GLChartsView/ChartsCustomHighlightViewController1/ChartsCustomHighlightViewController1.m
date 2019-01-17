@@ -8,6 +8,7 @@
 
 #import "ChartsCustomHighlightViewController1.h"
 #import "CustomHighlightView1.h"
+#import <GLMacro.h>
 
 @interface ChartsCustomHighlightViewController1 ()
 

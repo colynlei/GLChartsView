@@ -8,6 +8,7 @@
 
 #import "ChartsCustomFocusViewController.h"
 #import "CustomHighlightFocusView.h"
+#import <GLMacro.h>
 
 @interface ChartsCustomFocusViewController ()
 

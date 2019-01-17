@@ -45,19 +45,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) UIEdgeInsets mainChartsViewInset;//主绘图区域距离四边的距离。
 
-@property (nonatomic, strong) GLLineItem *yAxisItem;
-@property (nonatomic, strong) GLLineItem *xAxisItem;
+@property (nonatomic, strong) GLLineItem *yAxisItem;//纵轴配置
+@property (nonatomic, strong) GLLineItem *xAxisItem;//横轴配置
 
-@property (nonatomic, strong) GLChartsAxisTextItem *yAxisTextItem;
-@property (nonatomic, strong) GLChartsAxisTextItem *xAxisTextItem;
+@property (nonatomic, strong) GLChartsAxisTextItem *yAxisTextItem;//纵轴文字配置
+@property (nonatomic, strong) GLChartsAxisTextItem *xAxisTextItem;//横轴文字配置
 
-@property (nonatomic, strong) NSArray <NSString *>*yAxisData;
-@property (nonatomic, strong) NSArray <NSString *>*xAxisData;
+@property (nonatomic, strong) NSArray <NSString *>*yAxisData;//纵轴显示文字数组
+@property (nonatomic, strong) NSArray <NSString *>*xAxisData;//横轴显示文字数组
 
-@property (nonatomic, strong) NSArray <GLChartsLineItem *>*chartsLines;
+@property (nonatomic, strong) NSArray <GLChartsLineItem *>*chartsLines;//折线图配置数组。
 
-@property (nonatomic, assign) CGFloat axisMaxValue;
-@property (nonatomic, assign) CGFloat axisMinValue;
+@property (nonatomic, assign) CGFloat axisMaxValue;//最大值
+@property (nonatomic, assign) CGFloat axisMinValue;//最小值
 
 @property (nonatomic, assign) BOOL inverted;//Y轴是否上下翻转
 

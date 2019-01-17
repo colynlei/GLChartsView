@@ -9,6 +9,7 @@
 #import "ChartsCustomAllViewController.h"
 #import "CustomHighlightFocusAnimationView.h"
 #import "CustomHighlightView2.h"
+#import <GLMacro.h>
 
 @interface ChartsCustomAllViewController ()
 

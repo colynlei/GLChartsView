@@ -11,6 +11,8 @@
 #import "CustomHighlightFocusAnimationView.h"
 #import "CustomHighlightView2.h"
 
+#import <GLMacro.h>
+
 @interface ChartsMoreChartsViewController ()
 
 @property (nonatomic, strong) GLChartsView *chartsView;

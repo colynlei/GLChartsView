@@ -8,11 +8,11 @@
 
 Pod::Spec.new do |s|
   s.name         = "GLChartsView"
-  s.version      = "1.2.8"
+  s.version      = "1.2.9"
   s.summary      = "封装折线图，可高度自定义，线宽，坐标轴，网格线，折线线宽，折线颜色，折线动画，焦点动画，焦点视图等"
   s.homepage     = "https://github.com/colynlei/GLChartsView"
   s.license      = "MIT"
-  s.author       = { "『国』" => "leiguolin@huobi.com" }
+  s.author       = { "『国』" => "leiguolinhaoshuai@163.com" }
   s.source       = { :git => "https://github.com/colynlei/GLChartsView.git", :tag => "#{s.version}" }
   s.source_files = "Classes", "GLChartsView/*.{h,m}"
   s.ios.deployment_target = "9.0"

@@ -7,6 +7,7 @@
 //
 
 #import "ChartsDefaultViewController.h"
+#import <GLMacro.h>
 
 @interface ChartsDefaultViewController ()
 

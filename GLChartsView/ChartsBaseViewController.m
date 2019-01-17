@@ -8,6 +8,7 @@
 //
 
 #import "ChartsBaseViewController.h"
+#import <GLMacro.h>
 
 @interface ChartsBaseViewController ()<GLSegmentedControlDelegate>
 

@@ -7,6 +7,7 @@
 //
 
 #import "ChartsCustomAxisViewController.h"
+#import <GLMacro.h>
 
 @interface ChartsCustomAxisViewController ()
 

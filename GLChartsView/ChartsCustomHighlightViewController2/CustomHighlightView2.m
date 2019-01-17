@@ -8,6 +8,7 @@
 //
 
 #import "CustomHighlightView2.h"
+#import <GLMacro.h>
 
 @interface CustomHighlightView2 ()
 
