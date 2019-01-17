@@ -21,7 +21,6 @@
 		7AE9B0CC21DEFCE200330976 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B0CB21DEFCE200330976 /* main.m */; };
 		7AE9B0DF21DEFDEC00330976 /* GLChartsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B0D321DEFDEC00330976 /* GLChartsView.m */; };
 		7AE9B0E221DEFDEC00330976 /* GLChartsHighlightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B0D721DEFDEC00330976 /* GLChartsHighlightView.m */; };
-		7AE9B0E321DEFDEC00330976 /* GLChartsHighlightFocusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B0D821DEFDEC00330976 /* GLChartsHighlightFocusView.m */; };
 		7AE9B0E421DEFDEC00330976 /* GLChartsUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B0DC21DEFDEC00330976 /* GLChartsUtils.m */; };
 		7AE9B0EA21DF534200330976 /* ChartsDefaultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B0E921DF534200330976 /* ChartsDefaultViewController.m */; };
 		7AE9B0ED21DF55AF00330976 /* ChartsCustomFocusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE9B0EC21DF55AF00330976 /* ChartsCustomFocusViewController.m */; };
@@ -62,11 +61,9 @@
 		7AE9B0D321DEFDEC00330976 /* GLChartsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLChartsView.m; sourceTree = "<group>"; };
 		7AE9B0D521DEFDEC00330976 /* GLChartsUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLChartsUtils.h; sourceTree = "<group>"; };
 		7AE9B0D721DEFDEC00330976 /* GLChartsHighlightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLChartsHighlightView.m; sourceTree = "<group>"; };
-		7AE9B0D821DEFDEC00330976 /* GLChartsHighlightFocusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLChartsHighlightFocusView.m; sourceTree = "<group>"; };
 		7AE9B0D921DEFDEC00330976 /* GLChartsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLChartsView.h; sourceTree = "<group>"; };
 		7AE9B0DA21DEFDEC00330976 /* GLChartsHighlightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLChartsHighlightView.h; sourceTree = "<group>"; };
 		7AE9B0DC21DEFDEC00330976 /* GLChartsUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLChartsUtils.m; sourceTree = "<group>"; };
-		7AE9B0DE21DEFDEC00330976 /* GLChartsHighlightFocusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLChartsHighlightFocusView.h; sourceTree = "<group>"; };
 		7AE9B0E521DF0A5E00330976 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		7AE9B0E821DF534200330976 /* ChartsDefaultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChartsDefaultViewController.h; sourceTree = "<group>"; };
 		7AE9B0E921DF534200330976 /* ChartsDefaultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChartsDefaultViewController.m; sourceTree = "<group>"; };
@@ -202,8 +199,6 @@
 				7AE9B0DC21DEFDEC00330976 /* GLChartsUtils.m */,
 				7AE9B0DA21DEFDEC00330976 /* GLChartsHighlightView.h */,
 				7AE9B0D721DEFDEC00330976 /* GLChartsHighlightView.m */,
-				7AE9B0DE21DEFDEC00330976 /* GLChartsHighlightFocusView.h */,
-				7AE9B0D821DEFDEC00330976 /* GLChartsHighlightFocusView.m */,
 				7AE9B0D921DEFDEC00330976 /* GLChartsView.h */,
 				7AE9B0D321DEFDEC00330976 /* GLChartsView.m */,
 			);
@@ -387,7 +382,6 @@
 				7AE9B0CC21DEFCE200330976 /* main.m in Sources */,
 				7AE9B0BE21DEFCE000330976 /* AppDelegate.m in Sources */,
 				7AE9B0F021DF55FB00330976 /* ChartsCustomHighlightViewController2.m in Sources */,
-				7AE9B0E321DEFDEC00330976 /* GLChartsHighlightFocusView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

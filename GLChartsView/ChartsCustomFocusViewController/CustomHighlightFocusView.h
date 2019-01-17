@@ -6,11 +6,11 @@
 //  Copyright © 2019 雷国林. All rights reserved.
 //
 
-#import "GLChartsHighlightFocusView.h"
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CustomHighlightFocusView : GLChartsHighlightFocusView
+@interface CustomHighlightFocusView : UIView
 
 @end
 

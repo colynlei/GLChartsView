@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <YYKit.h>
 #import "GLChartsUtils.h"
 #import "GLChartsHighlightView.h"
-#import "GLChartsHighlightFocusView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSArray <NSNumber *>*points;
 @property (nonatomic, strong) GLLineItem *lineItem;
-@property (nonatomic, strong) GLChartsHighlightFocusView *focusView;
+@property (nonatomic, strong) UIView *focusView;
 
 @end
 

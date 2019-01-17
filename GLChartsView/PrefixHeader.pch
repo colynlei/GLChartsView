@@ -12,5 +12,6 @@
 #import <YYKit.h>
 //#import <GLMacro.h>
 #import <GLSegmentedControl.h>
+#import "GLChartsUtils.h"
 
 #endif /* PrefixHeader_pch */
