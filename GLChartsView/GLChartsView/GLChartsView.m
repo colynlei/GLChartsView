@@ -53,7 +53,6 @@
 @property (nonatomic, strong) UIView *highlightBgView;
 
 @property (nonatomic, strong) CALayer *highlightVerticalLineLayer;
-//@property (nonatomic, strong) CALayer *highlightHorizontalLineLayer;
 
 @property (nonatomic, assign) NSInteger currentPointIndex;
 @property (nonatomic, assign) NSInteger maxPointsCount;
@@ -83,7 +82,6 @@
         [self addSubview:self.highlightBgView];
         
         [self.highlightBgView.layer addSublayer:self.highlightVerticalLineLayer];
-//        [self.highlightBgView.layer addSublayer:self.highlightHorizontalLineLayer];
 //        [self.highlightBgView.layer addSublayer:self.highlightFocusLayer];
         
         
@@ -170,9 +168,6 @@
 
 - (void)setHighlightHorizontalLineModel:(GLLineItem *)highlightHorizontalLineModel {
     _highlightHorizontalLineModel = highlightHorizontalLineModel;
-//    self.highlightHorizontalLineLayer.height = highlightHorizontalLineModel.lineWidth;
-//    self.highlightHorizontalLineLayer.backgroundColor = highlightHorizontalLineModel.lineColor.CGColor;
-//    self.highlightHorizontalLineLayer.hidden = highlightHorizontalLineModel.isHiden;
 }
 
 
@@ -342,14 +337,6 @@
     }
     return _highlightVerticalLineLayer;
 }
-
-//- (CALayer *)highlightHorizontalLineLayer {
-//    if (!_highlightHorizontalLineLayer) {
-//        _highlightHorizontalLineLayer = [CALayer layer];
-//        _highlightHorizontalLineLayer.backgroundColor = self.highlightHorizontalLineModel.lineColor.CGColor;
-//    }
-//    return _highlightHorizontalLineLayer;
-//}
 
 - (CALayer *)yAxisLayer {
     if (!_yAxisLayer) {
@@ -551,6 +538,8 @@
         
         CALayer *highlightHorizontalLineLayer = [CALayer layer];
         highlightHorizontalLineLayer.backgroundColor = self.highlightHorizontalLineModel.lineColor.CGColor;
+        highlightHorizontalLineLayer.height = self.highlightHorizontalLineModel.lineWidth;
+        highlightHorizontalLineLayer.hidden = self.highlightHorizontalLineModel.isHiden;
         [self.highlightBgView.layer addSublayer:highlightHorizontalLineLayer];
         [self.highlightBgView.layer insertSublayer:highlightHorizontalLineLayer below:self.highlightVerticalLineLayer];
         [self.highlightHorizontalLineLayers addObject:highlightHorizontalLineLayer];

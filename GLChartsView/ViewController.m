@@ -43,7 +43,6 @@ typedef void (^aablock)(void);
                           @"viewController":@"ChartsCustomAllViewController"},
                         @{@"title":@"多条折线图",
                           @"viewController":@"ChartsMoreChartsViewController"}];
-    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <YYKit.h>
 #import "GLChartsUtils.h"
 #import "GLChartsHighlightView.h"
 
@@ -59,7 +58,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat axisMaxValue;//最大值
 @property (nonatomic, assign) CGFloat axisMinValue;//最小值
 
-@property (nonatomic, assign) BOOL inverted;//Y轴是否上下翻转
+//@property (nonatomic, assign) BOOL inverted;//Y轴是否上下翻转
 
 @property (nonatomic, assign) BOOL isAnimation;//划线时是否动画，默认YES
 @property (nonatomic, assign) CGFloat animationDuration;//动画时长，默认1s
